@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import HelloWorld from '@/components/HelloWorld'
-import Home from '../components/Home'
-import Vip from '../components/Vip'
+import GanK from '../components/GanK'
 import ShopCar from '../components/Car'
 import Search from '../components/Search'
 import NewsList from '../components/news/NewsList'
@@ -12,17 +10,18 @@ Vue.use(Router)
 
 export default new Router({
   linkActiveClass: 'mui-active',
-  routes: [{
+  routes: [
+    {
       path: '/',
-      component: Home
+      redirect: '/wanandroid'
     },
     {
-      path: '/home',
-      component: Home
+      path: '/wanandroid',
+      component: WanAndroid
     },
     {
-      path: '/vip',
-      component: Vip
+      path: '/gank',
+      component: GanK
     },
     {
       path: '/shopcar',
@@ -35,10 +34,6 @@ export default new Router({
     {
       path: '/news/newslist',
       component: NewsList
-    },
-    {
-      path: '/wanandroid',
-      component: WanAndroid
     }
   ]
 })

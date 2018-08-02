@@ -25,7 +25,12 @@ module.exports = {
       changeOrigin: true, //跨域
       pathRewrite: {
         '^/wanandroid': '/' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://10.1.5.11:8080/xxx/duty?time=2017-07-07 14:57:22'，直接写‘/api/xxx/duty?time=2017-07-07 14:57:22’即可
-      }
+      },
+      '/gank':{
+        target: 'http://gank.io/api',
+        changeOrigin: true, //跨域
+        pathRewrite: {
+          '^/gank': '/'
    }
 
     },

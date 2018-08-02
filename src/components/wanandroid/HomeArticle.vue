@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <ul class="list_article">
+  <div class="list_article">
+    <ul>
       <li v-for="art in articleList">
         <div class="info_art">
           <p>
@@ -28,33 +28,58 @@
 export default {
   data() {
     return {
+      isLoading: false,
       curPage: 0,
       articleList: []
     };
   },
   created() {
-    this.getHomeArticle();
+    this.getHomeArticle(0);
+  },
+  mounted() {
+    let _this = this;
+    // 添加滚动事件，检测滚动到页面底部
+    window.addEventListener("scroll", function() {
+      var scrollTop = document.documentElement.scrollTop;
+      var scrollHeight = document.documentElement.scrollHeight;
+      var clientHeight = document.documentElement.clientHeight;
+      if (scrollTop + clientHeight >= scrollHeight) {
+        if (_this.isLoading) return;
+        _this.getHomeArticle(_this.curPage);
+      }
+    });
   },
   methods: {
-    getHomeArticle() {
+    getHomeArticle(pageIndex) {
+      this.isLoading = true;
+      pageIndex = pageIndex || 0;
       this.axios
-        .get(this.api.wandroidHome)
+        .get(this.api.wandroidHome + pageIndex + "/json")
         .then(reponse => {
           var result = reponse.data;
           if (result.errorCode == 0) {
-            this.curPage = result.data.curPage;
-            this.articleList = result.data.datas;
+            if (result.data.datas != null) {
+              this.curPage = result.data.curPage;
+              this.articleList = this.articleList.concat(result.data.datas);
+            }
           }
+          this.isLoading = false;
         })
         .catch(function(erroe) {
           console.log(error);
+          this.isLoading = false;
         });
     }
   }
 };
 </script>
-
-<style>
+<style scoped>
+.list_article {
+  background-color: #fff;
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
 .list_article ul {
   list-style: none;
 }

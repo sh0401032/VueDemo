@@ -1,5 +1,7 @@
 const homeImagesApi = '/api/getImages'
 const newsListApi = '/api/news/newslist'
+
+const gankProxy = '/gank'
 /**
  * 每日数据： http://gank.io/api/day/年/月/日
  * eg:http://gank.io/api/day/2015/08/06
@@ -18,13 +20,14 @@ const newsListApi = '/api/news/newslist'
  * 第几页：数字，大于0
  * eg: http://gank.io/api/data/福利/10/1
  */
+const gankWelfare = gankProxy + '/data'
 
+const wandroidProxy = '/wanandroid'
 /**
  * 首页数据
  * http://www.wanandroid.com/article/list/0/json
  */
-const wandroidProxy = '/wanandroid'
-const wandroidHome = wandroidProxy + '/article/list/0/json'
+const wandroidHome = wandroidProxy + '/article/list/'
 /**
  * 首页Banner
  * /banner/json
@@ -35,7 +38,10 @@ export default {
   // 阿里云
   homeimageapi: homeImagesApi,
   newslist: newsListApi,
-  //   wanandroid
+  // wanandroid
   wandroidBanner: wandroidBanner,
-  wandroidHome: wandroidHome
+  wandroidHome: wandroidHome,
+
+  // gank
+  gankWelfare: gankWelfare
 }
