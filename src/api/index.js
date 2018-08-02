@@ -20,7 +20,7 @@ const gankProxy = '/gank'
  * 第几页：数字，大于0
  * eg: http://gank.io/api/data/福利/10/1
  */
-const gankWelfare = gankProxy + '/data'
+const gankWelfare = gankProxy + '/data/福利'
 
 const wandroidProxy = '/wanandroid'
 /**

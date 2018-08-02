@@ -1,9 +1,9 @@
 <template>
-    <div>
-        <ul>
-            <li v-for="img in images"><img src=""></li>
-        </ul>
-    </div>
+  <div>
+    <ul>
+      <li v-for="img in images"><img :src="img.url"></li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {
@@ -26,18 +26,13 @@ export default {
       this.$emit("init", this.title);
     },
     getImages() {
-      var url =
-        this.api.gankWelfare +
-        "/" +
-        encodeURI(encodeURI("福利")) +
-        "/" +
-        this.pageSize +
-        "/" +
-        this.pageIndex;
+      var url = this.api.gankWelfare + "/" + this.pageSize +"/" + this.pageIndex;
       this.axios
-        .get("http://gank.io/api/data/"+decodeURI(encodeURI("福利"))+"/10/1")
+        .get(url)
         .then(res => {
-          console.log(res.data);
+          if(!res.data.error){
+            this.images = res.data.results;
+          }
         })
         .catch();
     }
