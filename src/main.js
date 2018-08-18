@@ -7,8 +7,8 @@ import router from './router'
 import 'mint-ui/lib/style.min.css'
 import mintUi from 'mint-ui'
 import './axios'
-import Api from './api/index'
-Vue.prototype.api = Api
+import Utils from './utils/utils'
+Vue.prototype.$utils = Utils
 
 Vue.use(mintUi)
 Vue.config.productionTip = false

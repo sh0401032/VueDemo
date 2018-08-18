@@ -1,7 +1,7 @@
 <template>
   <div>
     <mt-swipe :auto="2000">
-      <mt-swipe-item v-for="item in list">
+      <mt-swipe-item v-for="(item,index) in list">
         <img :src="item.imagePath">
       </mt-swipe-item>
     </mt-swipe>
@@ -45,48 +45,57 @@
         </li>
       </ul>
     </div>
-
-    <!-- 首页文章列表 -->
-    <homeArticle></homeArticle>
+    <div class="main-content">
+      <div class="article-content">
+        <!-- 首页文章列表 -->
+        <homeArticle></homeArticle>
+      </div>
+      <div class="friend-web-site">
+        <friendWebSite></friendWebSite>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import HomeArticle from "./HomeArticle";
+import Api from '../../api/wanandroid'
+import HomeArticle from './HomeArticle'
+import FriendWebSite from './FriendWebSite'
 export default {
-  data() {
+  data () {
     return {
-      title:"玩安卓",
+      title: '玩安卓',
       list: []
-    };
+    }
   },
   components: {
-    homeArticle: HomeArticle
+    homeArticle: HomeArticle,
+    friendWebSite: FriendWebSite
   },
-  created() {
-    this.getImages();
+  created () {
+    this.getImages()
   },
-  mounted() {
-    this.init();
+  mounted () {
+    this.init()
   },
   methods: {
-    init() {
-      this.$emit("init", this.title);
+    init () {
+      this.$emit('init', this.title)
     },
-    getImages() {
+    getImages () {
       this.axios
-        .get(this.api.wandroidBanner)
+        .get(Api.wandroidBanner)
         .then(reponse => {
-          var result = reponse.data;
-          if (result.errorCode == 0) {
-            this.list = result.data;
+          var result = reponse.data
+          if (result.errorCode === 0) {
+            this.list = result.data
           }
         })
-        .catch(function(error) {
-          console.log(error);
-        });
+        .catch(function (error) {
+          console.log(error)
+        })
     }
   }
-};
+}
 </script>
 <style scoped>
 .mint-swipe-item {
@@ -99,6 +108,17 @@ export default {
 .mint-swipe {
   height: 400px;
 }
+.friend-web-site {
+  float: right;
+  width: 300px;
+  margin-left: -330px;
+}
+.main-content {
+  overflow: hidden;
+}
+.article-content {
+  width: 100%;
+  float: left;
+  padding-right: 330px;
+}
 </style>
-
-

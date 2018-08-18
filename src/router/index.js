@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import GanK from '../components/GanK'
+import GanK from '../components/gank/Gank'
 import ShopCar from '../components/Car'
 import Search from '../components/Search'
 import NewsList from '../components/news/NewsList'

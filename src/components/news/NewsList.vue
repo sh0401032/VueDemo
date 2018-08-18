@@ -15,30 +15,30 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       newslist: []
-    };
+    }
   },
-  created() {
-    this.getNewsList();
+  created () {
+    this.getNewsList()
   },
   methods: {
-    getNewsList() {
+    getNewsList () {
       this.axios
-        .get("/api/vue/news/newslist")
+        .get('/api/vue/news/newslist')
         .then(reponse => {
-          var result = reponse.data;
-          if (result.status == 0) {
-            this.newslist = result.data;
+          var result = reponse.data
+          if (result.status === 0) {
+            this.newslist = result.data
           }
         })
         .catch(error => {
-          console.log(error);
-        });
+          console.log(error)
+        })
     }
   }
-};
+}
 </script>
 <style>
   #news-list ul li img{

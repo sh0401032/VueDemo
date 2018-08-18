@@ -1,9 +1,11 @@
 <template>
   <div id="ap">
     <!-- 头部 -->
-    <mt-header fixed :title="headerTitle"></mt-header>
+    <header class="header-title">
+      <h2>{{headerTitle}}</h2>
+    </header>
     <!-- 内容部分 -->
-    <div style="margin-top:40px;margin-bottom:50px">
+    <div style="margin-bottom:50px">
       <router-view v-on:init="getTitle"></router-view>
     </div>
 
@@ -52,5 +54,10 @@ export default {
   color: #2c3e50;
   min-width: 960px;
   background: #f4f4f4;
+}
+.header-title{
+  text-align: center;
+  background: #196be6ee;
+  padding: 5px;
 }
 </style>
