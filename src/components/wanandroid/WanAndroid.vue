@@ -67,7 +67,7 @@ export default {
   width: 100%;
 }
 .mint-swipe {
-  height: 400px;
+  height: 500px;
 }
 
 .main-content {
