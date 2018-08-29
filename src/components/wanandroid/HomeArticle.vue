@@ -1,12 +1,12 @@
 <template>
   <div class="list_article">
     <ul>
-      <li class="info_art" v-for="art in articleList" :key="art">
+      <li class="info_art" v-for="(art,index) in articleList" :key="index">
         <p>
           <a :href="art.link" target="_blank">{{art.title}}</a>
         </p>
         <span v-if="art.fresh" class="istop">新</span>
-        <span class="tags" v-for="tag in art.tags" :key="tag">{{tag.name}}</span>
+        <span class="tags" v-for="(tag,index) in art.tags" :key="index">{{tag.name}}</span>
         <span>作者：
           <a class="aauthor" :href="'http://www.wanandroid.com/article/list/0?author='+art.author" target="_blank">{{art.author}}</a>
         </span>

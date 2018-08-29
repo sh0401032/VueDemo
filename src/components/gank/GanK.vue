@@ -1,7 +1,7 @@
 <template>
   <div class="list_welfare">
     <ul>
-      <li v-for="(img,index) in images"><img :src="img.url"></li>
+      <li v-for="(img,index) in images" :key="index"><img :src="img.url"></li>
     </ul>
   </div>
 </template>

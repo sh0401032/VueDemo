@@ -5,7 +5,7 @@
         <span>常用网站</span>
       </h2>
       <ul class="link_list">
-        <li v-for="(web,index) in webs">
+        <li v-for="(web,index) in webs" :key="index">
           <a :style="{color:getColor(web.order)}" :href="web.link" target="_blank">{{web.name}}</a>
         </li>
       </ul>
