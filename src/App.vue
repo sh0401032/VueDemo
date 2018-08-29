@@ -1,63 +1,65 @@
 <template>
   <div id="ap">
     <!-- 头部 -->
-    <header class="header-title">
-      <h2>{{headerTitle}}</h2>
-    </header>
+    <mt-header :title="headerTitle">
+    </mt-header>
     <!-- 内容部分 -->
-    <div style="margin-bottom:50px">
+    <div style="margin-bottom:46px">
       <router-view v-on:init="getTitle"></router-view>
     </div>
 
     <!-- 底部 -->
-    <nav class="mui-bar mui-bar-tab">
-      <router-link class="mui-tab-item" to="/wanandroid">
-        <span class="mui-icon mui-icon-home"></span>
-        <span class="mui-tab-label">首页</span>
-      </router-link>
-      <router-link class="mui-tab-item" to="/gank">
-        <span class="mui-icon mui-icon-email"></span>
-        <span class="mui-tab-label">干货</span>
-      </router-link>
-      <router-link class="mui-tab-item" to="/shopcar">
-        <span class="mui-icon mui-icon-contact"></span>
-        <span class="mui-tab-label">购物车</span>
-      </router-link>
-      <router-link class="mui-tab-item" to="/search">
-        <span class="mui-icon mui-icon-gear"></span>
-        <span class="mui-tab-label">搜索</span>
-      </router-link>
-    </nav>
+    <mt-tabbar fixed>
+      <mt-tab-item>
+        <router-link to="/wanandroid">
+          <img src="./assets/app/home.png" class="tab-item-img">
+        </router-link>
+      </mt-tab-item>
+      <mt-tab-item>
+        <router-link to="/gank">
+          <img src="./assets/app/picture.png" class="tab-item-img">
+        </router-link>
+      </mt-tab-item>
+      <mt-tab-item>
+        <router-link to="/shopcar">
+          <img src="./assets/app/shop.png" class="tab-item-img">
+        </router-link>
+      </mt-tab-item>
+      <mt-tab-item>
+        <router-link to="/search">
+          <img src="./assets/app/search.png" class="tab-item-img">
+        </router-link>
+      </mt-tab-item>
+    </mt-tabbar>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
-      headerTitle: ""
-    };
+      headerTitle: ''
+    }
   },
   methods: {
-    getTitle(title) {
-      this.headerTitle = title;
+    getTitle (title) {
+      this.headerTitle = title
     }
   }
-};
+}
 </script>
 
 <style scoped>
 #ap {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   min-width: 960px;
   background: #f4f4f4;
 }
-.header-title{
-  text-align: center;
-  background: #196be6ee;
-  padding: 5px;
+.tab-item-img {
+  width: 30px;
+  height: 30px;
 }
 </style>
