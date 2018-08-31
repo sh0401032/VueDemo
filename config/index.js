@@ -10,63 +10,59 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // proxyTable: {
-    //   '/api': {
-    //     // target: 'http://106.14.175.159:3000/', //设置你调用的接口域名和端口号 
-    //     target: 'http://localhost:3000/',
-    //     changeOrigin: true, //跨域
-    //     pathRewrite: {
-    //       '^/api': '/' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://10.1.5.11:8080/xxx/duty?time=2017-07-07 14:57:22'，直接写‘/api/xxx/duty?time=2017-07-07 14:57:22’即可
-    //     }
-    //   },
-    //   // 本地调试时，target直接为远程服务器地址，打包上传至服务器时，地址为服务器地址，同时服务器对远程服务器进行了代理
-    //   '/wanandroid': {
-    //     target: 'http://106.14.175.159:3000/', //设置你调用的接口域名和端口号 
-    //     //target: 'http://www.wanandroid.com/',
-    //     changeOrigin: true, //跨域
-    //     pathRewrite: {
-    //       '^/wanandroid': '/' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://10.1.5.11:8080/xxx/duty?time=2017-07-07 14:57:22'，直接写‘/api/xxx/duty?time=2017-07-07 14:57:22’即可
-    //     }
-    //   },
-    //   '/gank': {
-    //     target: 'http://106.14.175.159:3000/', //设置你调用的接口域名和端口号 
-    //     //target: 'http://gank.io/api',
-    //     changeOrigin: true, //跨域
-    //     pathRewrite: {
-    //       '^/gank': '/'
-    //     }
-    //   },
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:3000/',
+        changeOrigin: true, //跨域
+        pathRewrite: {
+          '^/api': '/' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://10.1.5.11:8080/xxx/duty?time=2017-07-07 14:57:22'，直接写‘/api/xxx/duty?time=2017-07-07 14:57:22’即可
+        }
+      },
+      '/wanandroid': {
+        target: 'http://www.wanandroid.com/',
+        changeOrigin: true, //跨域
+        pathRewrite: {
+          '^/wanandroid': '/' //这里理解成用‘/api’代替target里面的地址，后面组件中我们掉接口时直接用api代替 比如我要调用'http://10.1.5.11:8080/xxx/duty?time=2017-07-07 14:57:22'，直接写‘/api/xxx/duty?time=2017-07-07 14:57:22’即可
+        }
+      },
+      '/gank': {
+        target: 'http://gank.io/api',
+        changeOrigin: true, //跨域
+        pathRewrite: {
+          '^/gank': '/'
+        }
+      },
 
-    //   // Various Dev Server settings
-    //   host: 'localhost', // can be overwritten by process.env.HOST
-    //   port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    //   autoOpenBrowser: false,
-    //   errorOverlay: true,
-    //   notifyOnErrors: true,
-    //   poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
+      // Various Dev Server settings
+      host: 'localhost', // can be overwritten by process.env.HOST
+      port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+      autoOpenBrowser: false,
+      errorOverlay: true,
+      notifyOnErrors: true,
+      poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
 
-    //   // Use Eslint Loader?
-    //   // If true, your code will be linted during bundling and
-    //   // linting errors and warnings will be shown in the console.
-    //   useEslint: true,
-    //   // If true, eslint errors and warnings will also be shown in the error overlay
-    //   // in the browser.
-    //   showEslintErrorsInOverlay: false,
+      // Use Eslint Loader?
+      // If true, your code will be linted during bundling and
+      // linting errors and warnings will be shown in the console.
+      useEslint: true,
+      // If true, eslint errors and warnings will also be shown in the error overlay
+      // in the browser.
+      showEslintErrorsInOverlay: false,
 
-    //   /**
-    //    * Source Maps
-    //    */
+      /**
+       * Source Maps
+       */
 
-    //   // https://webpack.js.org/configuration/devtool/#development
-    //   devtool: 'cheap-module-eval-source-map',
+      // https://webpack.js.org/configuration/devtool/#development
+      devtool: 'cheap-module-eval-source-map',
 
-    //   // If you have problems debugging vue-files in devtools,
-    //   // set this to false - it *may* help
-    //   // https://vue-loader.vuejs.org/en/options.html#cachebusting
-    //   cacheBusting: true,
+      // If you have problems debugging vue-files in devtools,
+      // set this to false - it *may* help
+      // https://vue-loader.vuejs.org/en/options.html#cachebusting
+      cacheBusting: true,
 
-    //   cssSourceMap: true
-    // }
+      cssSourceMap: true
+    }
   },
 
   build: {
