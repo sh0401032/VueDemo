@@ -32,6 +32,14 @@ export default {
     friendWebSite: FriendWebSite
   },
   created () {
+    // 获取当前底部是否显示
+    let _footer = this.$store.state.footerVisible
+    if (!_footer) {
+      this.$store.commit('TOGGLE_FOOTER')
+    }
+    // 设置选中的tab
+    this.$store.commit('SELECT_TAB', 'main')
+    // 获取banner图片
     this.getImages()
   },
   mounted () {

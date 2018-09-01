@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './state/index.js'// 引入vuex
 import 'mint-ui/lib/style.min.css'
 import './axios'
 import Utils from './utils/utils'
@@ -20,6 +21,7 @@ Vue.component(TabItem.name, TabItem)
 new Vue({
   el: '#app',
   router: router,
+  store: store,
   components: {
     App
   },

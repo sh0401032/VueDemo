@@ -11,22 +11,22 @@
     <!-- 底部 -->
     <mt-tabbar fixed>
       <mt-tab-item>
-        <router-link to="/wanandroid">
+        <router-link to="/app/wanandroid">
           <img src="./assets/app/home.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
       <mt-tab-item>
-        <router-link to="/gank">
+        <router-link to="/app/gank">
           <img src="./assets/app/picture.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
       <mt-tab-item>
-        <router-link to="/shopcar">
+        <router-link to="/app/shopcar">
           <img src="./assets/app/shop.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
       <mt-tab-item>
-        <router-link to="/search">
+        <router-link to="/app/search">
           <img src="./assets/app/search.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>

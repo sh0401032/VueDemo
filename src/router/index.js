@@ -12,27 +12,27 @@ export default new Router({
   mode: 'history',
   linkActiveClass: 'mui-active',
   routes: [{
-    path: '/',
-    redirect: '/wanandroid'
+    path: '/app',
+    redirect: '/app/wanandroid'
   },
   {
-    path: '/wanandroid',
+    path: '/app/wanandroid',
     component: WanAndroid
   },
   {
-    path: '/gank',
+    path: '/app/gank',
     component: GanK
   },
   {
-    path: '/shopcar',
+    path: '/app/shopcar',
     component: ShopCar
   },
   {
-    path: '/search',
+    path: '/app/search',
     component: Search
   },
   {
-    path: '/news/newslist',
+    path: '/app/news/newslist',
     component: NewsList
   }
   ]
