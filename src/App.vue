@@ -10,22 +10,22 @@
 
     <!-- 底部 -->
     <mt-tabbar fixed>
-      <mt-tab-item>
+      <mt-tab-item class="tab-bar">
         <router-link to="/app/wanandroid">
           <img src="./assets/app/home.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
-      <mt-tab-item>
+      <mt-tab-item class="tab-bar">
         <router-link to="/app/gank">
           <img src="./assets/app/picture.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
-      <mt-tab-item>
+      <mt-tab-item class="tab-bar">
         <router-link to="/app/shopcar">
           <img src="./assets/app/shop.png" class="tab-item-img">
         </router-link>
       </mt-tab-item>
-      <mt-tab-item>
+      <mt-tab-item class="tab-bar">
         <router-link to="/app/search">
           <img src="./assets/app/search.png" class="tab-item-img">
         </router-link>
@@ -51,15 +51,19 @@ export default {
 
 <style scoped>
 #ap {
+  width: 100%;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  min-width: 960px;
   background: #f4f4f4;
 }
 .tab-item-img {
   width: 30px;
   height: 30px;
+}
+.tab-bar{
+  width: 25%;
+  box-sizing: border-box;
 }
 </style>

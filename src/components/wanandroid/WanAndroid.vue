@@ -1,8 +1,8 @@
 <template>
   <div>
-    <mt-swipe :auto="2000">
+    <mt-swipe class="swipe" :auto="2000">
       <mt-swipe-item v-for="(item,index) in list" :key="index">
-        <img :src="item.imagePath">
+        <img class="swipe-img" :src="item.imagePath">
       </mt-swipe-item>
     </mt-swipe>
     <div class="main-content">
@@ -10,16 +10,12 @@
         <!-- 首页文章列表 -->
         <homeArticle></homeArticle>
       </div>
-      <div class="friend-web-site">
-        <friendWebSite></friendWebSite>
-      </div>
     </div>
   </div>
 </template>
 <script>
 import Api from '../../api/wanandroid'
 import HomeArticle from './HomeArticle'
-import FriendWebSite from './FriendWebSite'
 export default {
   data () {
     return {
@@ -28,8 +24,7 @@ export default {
     }
   },
   components: {
-    homeArticle: HomeArticle,
-    friendWebSite: FriendWebSite
+    homeArticle: HomeArticle
   },
   created () {
     // 获取当前底部是否显示
@@ -67,28 +62,20 @@ export default {
 </script>
 
 <style scoped>
-.mint-swipe-item {
-  width: 100%;
-  height: 100%;
+.swipe {
+  overflow: hidden;
+  height: 200px;
 }
-.mint-swipe-item img {
+.swipe-img {
   width: 100%;
-}
-.mint-swipe {
-  height: 500px;
 }
 
 .main-content {
   overflow: hidden;
-  min-width: 900px;
 }
-.article-content {
-  width: 100%;
-  float: left;
-  margin-right: -350px;
-}
-.friend-web-site {
+
+/* .friend-web-site {
   float: right;
   width: 300px;
-}
+} */
 </style>
