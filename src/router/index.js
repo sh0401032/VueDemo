@@ -9,10 +9,9 @@ import WanAndroid from '../components/wanandroid/WanAndroid'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
   linkActiveClass: 'mui-active',
   routes: [{
-    path: '/app',
+    path: '/',
     redirect: '/app/wanandroid'
   },
   {
