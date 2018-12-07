@@ -8,6 +8,8 @@ import 'mint-ui/lib/style.min.css'
 import './axios'
 import Utils from './utils/utils'
 import { Header, Swipe, SwipeItem, Tabbar, TabItem } from 'mint-ui'
+import VideoPlayer from 'vue-video-player'
+Vue.use(VideoPlayer)
 Vue.prototype.$utils = Utils
 Vue.config.productionTip = false
 // mint-ui按需加载组件

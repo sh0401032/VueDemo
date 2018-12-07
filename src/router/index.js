@@ -33,6 +33,17 @@ export default new Router({
   {
     path: '/app/news/newslist',
     component: NewsList
+  },
+  {
+    path: '/app/vue-video-player',
+    component: () => import('@/components/video/VueVideoPlayer'),
+    meta: {
+      title: '视频播放'
+    }
+  },
+  {
+    path: '/app/video',
+    component: () => import('@/components/video/Video')
   }
   ]
 })
