@@ -1,6 +1,6 @@
 <template>
   <div id="news-list">
-    <ul class="mui-table-view" v-for="news in newslist">
+    <ul class="mui-table-view" v-for="(news,index) in newslist" :key="index">
       <li class="mui-table-view-cell mui-media">
         <a href="javascript:">
           <img class="mui-media-object mui-pull-left" :src="news.img">

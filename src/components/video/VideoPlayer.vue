@@ -3,6 +3,12 @@
     <video
       class="video-player"
       ref="videoPlayer"
+      webkit-playsinline="true"
+      playsinline
+      x5-video-player-type="h5"
+      x5-video-player-fullscreen="true"
+      x5-video-orientation="portraint"
+      controls="false"
       :src='url'
       @click="onPlayOrPause"
     ></video>
@@ -26,6 +32,10 @@ export default {
       let video = this.$refs.videoPlayer
       if (video.paused) {
         video.play()
+
+        if (video.webkitRequestFullScreen) {
+          video.webkitRequestFullScreen()
+        }
       } else {
         video.pause()
       }
@@ -57,8 +67,6 @@ export default {
 }
 .video-player {
   width: 100%;
-  box-sizing: border-box;
-  padding: 0 20px;
 }
 .video-control {
 }
