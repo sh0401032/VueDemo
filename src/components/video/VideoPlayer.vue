@@ -22,19 +22,31 @@ export default {
     return {}
   },
   created () {
-    document.addEventListener('webkitfullscreenchange', () => {
-      var el = document.fullscreenElement || document.webkitFullscreenElement
-      if (el && el.tagName === 'VIDEO') {
-        let video = this.$refs.videoPlayer
-        if (video && video.paused) {
-          video.play()
-        }
-      }
-    })
+    this.init()
   },
   mounted () {
   },
   methods: {
+    init () {
+      document.addEventListener('webkitfullscreenchange', () => {
+        var el = document.fullscreenElement || document.webkitFullscreenElement
+        if (el && el.tagName === 'VIDEO') {
+          let video = this.$refs.videoPlayer
+          if (video && video.paused) {
+            video.play()
+          }
+        }
+      })
+      document.addEventListener('fullscreenchange', () => {
+        var el = document.fullscreenElement || document.webkitFullscreenElement
+        if (el && el.tagName === 'VIDEO') {
+          let video = this.$refs.videoPlayer
+          if (video && video.paused) {
+            video.play()
+          }
+        }
+      })
+    },
     requestFullScreen () {
       let video = this.$refs.videoPlayer
       console.log(video.requestFullscreen)
