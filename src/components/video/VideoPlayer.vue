@@ -5,12 +5,8 @@
       ref="videoPlayer"
       webkit-playsinline="true"
       playsinline
-      x5-video-player-type="h5"
-      x5-video-player-fullscreen="true"
-      x5-video-orientation="portraint"
-      controls="false"
       :src='url'
-      @click="onPlayOrPause"
+      @click="requestFullScreen"
     ></video>
     <div class="video-control">
 
@@ -25,37 +21,28 @@ export default {
   data () {
     return {}
   },
-  created () {},
-  mounted () {},
-  methods: {
-    onPlayOrPause () {
-      let video = this.$refs.videoPlayer
-      if (video.paused) {
-        video.play()
-
-        if (video.webkitRequestFullScreen) {
-          video.webkitRequestFullScreen()
+  created () {
+    document.addEventListener('webkitfullscreenchange', () => {
+      var el = document.fullscreenElement || document.webkitFullscreenElement
+      if (el && el.tagName === 'VIDEO') {
+        let video = this.$refs.videoPlayer
+        if (video && video.paused) {
+          video.play()
         }
-      } else {
-        video.pause()
       }
-    },
-    // 播放
-    onPlay () {
-      this.$refs.videoPlayer.play()
-    },
-    // 暂停
-    onPause () {
-      this.$refs.videoPlayer.pause()
-    },
-    // 释放资源
-    onRelease () {},
-    // 进入全屏
-    enterFullScreen () {
+    })
+  },
+  mounted () {
+  },
+  methods: {
+    requestFullScreen () {
       let video = this.$refs.videoPlayer
-      window.onresize = function () {
-        video.style.width = window.innerWidth + 'px'
-        video.style.height = window.innerHeight + 'px'
+      console.log(video.requestFullscreen)
+      console.log(video.webkitRequestFullScreen)
+      if (video.requestFullscreen) {
+        video.requestFullscreen()
+      } else if (video.webkitRequestFullScreen) {
+        video.webkitRequestFullScreen()
       }
     }
   }
